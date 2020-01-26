@@ -1,0 +1,33 @@
+<?php require('template/header.phtml') ?>
+<?php require('template/sidebar.phtml') ?>
+<?php require('template/post-sidebar.phtml') ?>
+
+
+    <div class="row marginT30">
+        <?php foreach($view->cars as $car): ?>
+
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <div class="thumbnail-img-holder"><img src="images/<?=$car['image']?>" width="100%" alt=""></div>
+                    <div class="caption">
+                        <h4><?=$car['make_name'] . " " .$car['model_name']; ?> <span class="pull-right"><?=$car['yearOfReg']?></span></h4>
+                        <p><?=$car['location_name'] . ' | ' . $car['engine_size'] . " " .  $car['fuelType'] . "<span class='pull-right'>" . $car['mileage'] . " miles</span>";?></p>
+                        <p>
+                            <a href="view-car.php?car-id=<?=$car['id']?>" class="btn btn-primary" role="button">View</a>
+                            <?php if(User::check()): ?>
+                                <a <a href="edit-car.php?edit-car=action&make=<?=$car['make']?>&car-id=<?=$car['id']; ?>" role="button" class="btn btn-warning" title="Click to remove">Edit</a>
+                            <?php endif; ?>
+                            <a href="edit-car.php?delete-car=action&car-id=<?=$car['id']?> "><button class="btn btn-danger pull-right" role="button">Delete</button></a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        <?php endforeach; ?>
+    </div>
+
+
+
+
+
+<?php require('template/footer.phtml') ?>

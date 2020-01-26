@@ -1,0 +1,51 @@
+<?php require('template/header.phtml') ?>
+<?php require('template/sidebar.phtml') ?>
+<?php require('template/post-sidebar.phtml') ?>
+
+    <div class="row marginT30">
+
+            <div class="col-md-12">
+                <div class="col-md-6 pull-left"><img src="images/<?=$view->car['image']?>" width="100%" alt=""></div>
+
+                <div class="col-lg-6 pull-right">
+
+                        <h4><?=$view->car['make_name'] . " " .$view->car['model_name']; ?> <span class="pull-right"><?=$view->car['yearOfReg']?></span></h4>
+                        <p><?=$view->car['location_name'] . ' | ' . $view->car['engine_size'] . " " .  $view->car['fuelType'] . "<span class='pull-right'>" . $view->car['mileage'] . " miles</span>";?></p>
+                        <p>
+                            <?php if(!User::check()): ?>
+                            <a href="login.php" class="btn btn-warning" role="button">Login To Make Offer</a>
+                            <?php endif; ?>
+
+                            <?php if(User::check()):
+                                $carID = $view->car['id'];
+                                $userID = $_SESSION['user']['userId'];
+                                $ownerID = $view->car["ownerId"];
+                                $price = $view->car["price"];
+                                ?>
+                            <button type="button" id="bid-button" onclick="addBid(<?= $carID . ', ' . $userID . ', ' . $ownerID . ', ' . $price; ?>)" class="btn btn-warning" role="button">Make Offer</button>
+                                <?php $id=$view->car['id']; if(isset($_SESSION["wishlist"]["$id"])): ?>
+                                    <a <a href="wishlist.php?remove-from-wishlist=action&id=<?=$view->car['id']; ?>" role="button" class="btn btn-success" title="Click to remove">Added to Wishlist</a>
+                                <?php else: ?>
+                                    <a href="wishlist.php?add-to-wishlist=action&id=<?=$view->car['id']; ?>" title="Click to add" class="btn btn-default" role="button">Add to Wishlist</a>
+                                <?php endif; ?>
+                            <?php endif; ?>
+                            <button class="btn btn-danger pull-right" role="button"><?="&pound;" . $view->car['price']?></button>
+                        </p>
+                        <hr/>
+                        <p>
+                            <span class='st_sharethis_large' displayText='ShareThis'></span>
+                            <span class='st_facebook_large' displayText='Facebook'></span>
+                            <span class='st_whatsapp_large' displayText='WhatsApp'></span>
+                            <span class='st_twitter_large' displayText='Tweet'></span>
+                            <span class='st_linkedin_large' displayText='LinkedIn'></span>
+                            <span class='st_googleplus_large' displayText='Google +'></span>
+                            <span class='st_email_large' displayText='Email'></span>
+                        </p>
+                        <p>
+                            <?=$view->car['description']?>
+                        </p>
+                </div>
+            </div>
+    </div>
+
+<?php require('template/footer.phtml') ?>

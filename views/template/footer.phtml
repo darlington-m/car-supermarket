@@ -1,0 +1,116 @@
+
+
+<div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Register</h4>
+            </div>
+            <div class="modal-body">
+
+                <form action="" method="post" autocomplete="off">
+                    <div class="input-group marginB20">
+                        <span class="input-group-addon">@</span>
+                        <input class="form-control" type="text" name="name" placeholder="Full Name" autocomplete="off">
+                    </div>
+
+                    <div class="input-group marginB20">
+                        <span class="input-group-addon">@</span>
+                        <input class="form-control" type="email" name="email" placeholder="Email" autocomplete="off">
+                    </div>
+
+                    <div class="input-group marginB20">
+                        <span class="input-group-addon">@</span>
+                        <input class="form-control" type="number" name="phone-number" placeholder="Phone Number" autocomplete="off">
+                    </div>
+
+                    <div class="input-group marginB20">
+                        <span class="input-group-addon">@</span>
+                        <input class="form-control" type="password" name="password" placeholder="Password" autocomplete="off">
+                    </div>
+
+                    <div class="input-group marginB20">
+                        <span class="input-group-addon">@</span>
+                        <input class="form-control" type="password" name="password1" placeholder="Repeat Password" autocomplete="off">
+                    </div>
+
+                    <div class="btn-group">
+                        <button type="submit" name="submit" class="btn btn-primary">
+                            Register  &nbsp;
+                            <span class="glyphicon glyphicon-circle-arrow-right"></span>
+                        </button>
+                    </div>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <small class="pull-left marginT30">Got an account? <a href="" data-dismiss="modal" data-toggle="modal" data-target="#loginModal">Login</a></small>
+                <small class="pull-right marginT30"><a href="" data-toggle="modal" data-toggle="modal" data-target="#registerModal">Forgot Password</a></small>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Login</h4>
+            </div>
+            <div class="modal-body">
+                <form action="" method="post" autocomplete="off">
+
+                    <div class="input-group marginB20">
+                        <span class="input-group-addon">@</span>
+                        <input class="form-control" type="email" name="email" placeholder="Email" autocomplete="off">
+                    </div>
+
+                    <div class="input-group marginB20">
+                        <span class="input-group-addon">@</span>
+                        <input class="form-control" type="password" name="password" placeholder="Password" autocomplete="off">
+                    </div>
+
+                    <div class="btn-group">
+                        <button name="submit" type="submit" class="btn btn-primary">
+                            Sign In  &nbsp;
+                            <span class="glyphicon glyphicon-circle-arrow-right"></span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <small class="pull-left marginT30">Haven't got an account? <a href="" data-dismiss="modal" data-toggle="modal" data-target="#registerModal">Register</a></small>
+                <small class="pull-right marginT30"><a href="" data-toggle="modal" data-toggle="modal" data-target="#registerModal">Forgot Password</a></small>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+        </div>
+      </div>
+    </div>
+
+    <footer class="container-fluid">
+        <p>Copyright &copy; Car Supermarket <?php echo date('Y'); ?></p>
+    </footer>
+
+
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
+   </body>
+</html>

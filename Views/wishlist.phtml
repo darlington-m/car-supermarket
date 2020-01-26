@@ -1,0 +1,35 @@
+<?php require('template/header.phtml') ?>
+<?php require('template/sidebar.phtml') ?>
+<?php require('template/post-sidebar.phtml') ?>
+
+
+    <div class="row marginT30">
+        <?php foreach($_SESSION['wishlist'] as $car): ?>
+
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <div class="thumbnail-img-holder"><img src="images/<?=$car['image']?>" width="100%" alt=""></div>
+                    <div class="caption">
+                        <h4><?=$car['make_name'] . " " .$car['model_name']; ?> <span class="pull-right"><?=$car['yearOfReg']?></span></h4>
+                        <p><?=$car['location_name'] . ' | ' . $car['engine_size'] . " " .  $car['fuelType'] . "<span class='pull-right'>" . $car['mileage'] . " miles</span>";?></p>
+                        <p>
+                            <a href="view-car.php?car-id=<?=$car['id']?>" class="btn btn-primary" role="button">View</a>
+                            <?php $id=$car['id']; if(isset($_SESSION["wishlist"])): ?>
+                                <a href="wishlist.php?remove-from-wishlist=action&id=<?=$car['id']; ?>" role="button" class="btn btn-success" title="Click to remove">Added to Wishlist</a>
+                            <?php else: ?>
+                                <a href="wishlist.php?add-to-wishlist=action&id=<?=$car['id']; ?>" title="Click to add" class="btn btn-default" role="button">Add to Wishlist</a>
+                            <?php endif; ?>
+                            <button class="btn btn-danger pull-right" role="button"><?="&pound;" . $car['price']?></button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        <?php endforeach; ?>
+    </div>
+
+
+
+
+
+<?php require('template/footer.phtml') ?>

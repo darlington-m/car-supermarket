@@ -1,0 +1,163 @@
+<?php require('template/header.phtml') ?>
+<?php require('template/sidebar.phtml') ?>
+<?php require('template/post-sidebar.phtml') ?>
+
+
+    <div class="login col-md-8 col-md-offset-2 marginT30">
+        <h3 class="center-text marginB30"><small>Add New Car Advert</small></h3>
+
+
+        <?php if(isset($view->messages['errors'])): ?>
+            <div class="alert alert-danger" role="alert">
+
+                <?php foreach($view->messages["errors"] as $error): ?>
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    <span class="sr-only">Error:</span>
+                    <?php echo $error . "<br>"; ?>
+                <?php endforeach?>
+
+            </div>
+        <?php endif; ?>
+
+        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" enctype="multipart/form-data" method="post" autocomplete="off">
+
+            <input type="hidden" name="id" value="<?=$view->messages["userInput"]["id"]?>">
+
+            <div class="input-group marginB20">
+                <span class="input-group-addon">*</span>
+                <select class="form-control" name="make">
+                    <option value="">Select Make</option>
+                    <?php foreach($view->makes as $make): ?>
+                        <option value="<?php echo $make['make_id']; ?>"  <?php if(isset($view->messages["userInput"]["make"]) && $view->messages["userInput"]["make"] == $make['make_id']){ echo " selected"; } ?>><?php echo $make['make_name']; ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+
+
+            <div class="input-group marginB20">
+                <span class="input-group-addon">*</span>
+                <select class="form-control" name="model" id="">
+                    <option value="">Select Model</option>
+                    <?php foreach($view->models as $model): ?>
+                        <option value="<?php echo $model['model_id']; ?>"  <?php if(isset($view->messages["userInput"]["model"]) && $view->messages["userInput"]["model"] == $model['model_id']){ echo " selected"; } ?>><?php echo $model['model_name']; ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+
+
+            <div class="input-group marginB20">
+                <span class="input-group-addon">*</span>
+                <select class="form-control" name="type" id="">
+                    <option value="">Select Type</option>
+                    <?php foreach($view->types as $type): ?>
+                        <option value="<?php echo $type['type_id']; ?>"  <?php if(isset($view->messages["userInput"]["carType"]) && $view->messages["userInput"]["carType"] == $type['type_id']){ echo " selected"; } ?>><?php echo $type['type_name']; ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+
+
+            <div class="input-group marginB20">
+                <span class="input-group-addon">*</span>
+                <select class="form-control" name="color" id="">
+                    <option value="">Select Colour</option>
+                    <?php foreach($view->colors as $color): ?>
+                        <option value="<?php echo $color['color_id']; ?>"  <?php if(isset($view->messages["userInput"]["color"]) && $view->messages["userInput"]["color"] == $color['color_id']){ echo " selected"; } ?>><?php echo $color['color_name']; ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+
+            <div class="input-group marginB20">
+                <span class="input-group-addon">*</span>
+                <select class="form-control" name="location" id="">
+                    <option value="">Select Location</option>
+                    <?php foreach($view->locations as $location): ?>
+                        <option value="<?php echo $location['location_id']; ?>"  <?php if(isset($view->messages["userInput"]["location"]) && $view->messages["userInput"]["location"] == $location['location_id']){ echo " selected"; } ?>><?php echo $location['location_name']; ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+
+            <div class="input-group marginB20">
+                <span class="input-group-addon">*</span>
+                <select class="form-control" name="engineSize" id="">
+                    <option value="">Select Engine Size</option>
+                    <?php foreach($view->engineSizes as $engineSize): ?>
+                        <option value="<?php echo $engineSize['engineSize_id']; ?>"  <?php if(isset($view->messages["userInput"]["engineSize"]) && $view->messages["userInput"]["engineSize"] == $engineSize['engineSize_id']){ echo " selected"; } ?>><?php echo $engineSize['engine_size']; ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+
+
+            <div class="input-group marginB20">
+                <span class="input-group-addon">*</span>
+                <select class="form-control" name="transmission" id="">
+                    <option value="">Select Transmission</option>
+                    <option value="Automatic"  <?php if(isset($view->messages["userInput"]["transmission"]) && $view->messages["userInput"]["transmission"] == "Automatic"){ echo " selected"; } ?>>Automatic</option>
+                    <option value="Semi-automatic"  <?php if(isset($view->messages["userInput"]["transmission"]) && $view->messages["userInput"]["transmission"] == "Semi-automatic"){ echo " selected"; } ?>>Semi Automatic</option>
+                    <option value="Manual"  <?php if(isset($view->messages["userInput"]["transmission"]) && $view->messages["userInput"]["transmission"] == "Manual"){ echo " selected"; } ?>>Manual</option>
+                </select>
+            </div>
+
+
+            <div class="input-group marginB20">
+                <span class="input-group-addon">*</span>
+                <select class="form-control" name="fuelType" id="">
+                    <option value="">Select Fuel Type</option>
+                    <option value="Bi-Fuel"  <?php if(isset($view->messages["userInput"]["fuelType"]) && $view->messages["userInput"]["fuelType"] == "Bi-Fuel"){ echo " selected"; } ?>>Bi-Fuel</option>
+                    <option value="Diesel"  <?php if(isset($view->messages["userInput"]["fuelType"]) && $view->messages["userInput"]["fuelType"] == "Diesel"){ echo " selected"; } ?>>Diesel</option>
+                    <option value="Electric"  <?php if(isset($view->messages["userInput"]["fuelType"]) && $view->messages["userInput"]["fuelType"] == "Electric"){ echo " selected"; } ?>>Electric</option>
+                    <option value="Hybrid"  <?php if(isset($view->messages["userInput"]["fuelType"]) && $view->messages["userInput"]["fuelType"] == "Hybrid"){ echo " selected"; } ?>>Hybrid</option>
+                    <option value="LPG"  <?php if(isset($view->messages["userInput"]["fuelType"]) && $view->messages["userInput"]["fuelType"] == "LPG"){ echo " selected"; } ?>>LPG</option>
+                    <option value="Petrol"  <?php if(isset($view->messages["userInput"]["fuelType"]) && $view->messages["userInput"]["fuelType"] == "Petrol"){ echo " selected"; } ?>>Petrol</option>
+                </select>
+            </div>
+
+
+            <div class="input-group marginB20">
+                <span class="input-group-addon">*</span>
+                <select class="form-control" name="doors" id="">
+                    <option value="">Select No. of Doors</option>
+                    <option value="2"  <?php if(isset($view->messages["userInput"]["doors"]) && $view->messages["userInput"]["doors"] == 2){ echo " selected"; } ?>>2</option>
+                    <option value="3"  <?php if(isset($view->messages["userInput"]["doors"]) && $view->messages["userInput"]["doors"] == 3){ echo " selected"; } ?>>3</option>
+                    <option value="5"  <?php if(isset($view->messages["userInput"]["doors"]) && $view->messages["userInput"]["doors"] == 5){ echo " selected"; } ?>>5</option>
+                </select>
+            </div>
+
+
+            <div class="input-group marginB20">
+                <span class="input-group-addon">*</span>
+                <input class="form-control" type="number" max="<?php date('Y')?>" name="yearOfReg" value="<?php if(isset($view->messages["userInput"]["yearOfReg"])){ echo $view->messages["userInput"]["yearOfReg"];}?>" placeholder="Year of Registration" autocomplete="off">
+            </div>
+
+
+            <div class="input-group marginB20">
+                <span class="input-group-addon">*</span>
+                <input class="form-control" type="number" name="price" value="<?php if(isset($view->messages["userInput"]["price"])){ echo $view->messages["userInput"]["price"];}?>" placeholder="Price" autocomplete="off">
+            </div>
+
+            <div class="input-group marginB20">
+                <span class="input-group-addon">*</span>
+                <input class="form-control" type="number" name="mileage" value="<?php if(isset($view->messages["userInput"]["mileage"])){ echo $view->messages["userInput"]["mileage"];}?>" placeholder="Mileage" autocomplete="off">
+            </div>
+
+            <div class="input-group marginB20">
+                <span class="input-group-addon">*</span>
+                <textarea class="form-control" style="resize: none" type="text" name="description"  placeholder="Description" autocomplete="off"><?php if(isset($view->messages["userInput"]["description"])){ echo $view->messages["userInput"]["description"];}?></textarea>
+            </div>
+
+            <div class="marginB20">
+                <label for="image">Add Image:</label>
+                <input type="file" name="photo">
+            </div>
+
+            <div class="btn-group">
+                <button type="submit" name="submit-edit-car" class="btn btn-primary">
+                    Update Advert &nbsp;
+                    <span class="glyphicon glyphicon-circle-arrow-right"></span>
+                </button>
+            </div>
+        </form>
+    </div>
+
+
+
+<?php require('template/footer.phtml') ?>

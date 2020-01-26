@@ -1,0 +1,74 @@
+<?php require('template/header.phtml') ?>
+<?php require('template/sidebar.phtml') ?>
+<?php require('template/post-sidebar.phtml') ?>
+
+    <div class="login col-md-6 col-md-offset-3 marginT30">
+        <h3 class="center-text marginB30"><small>Edit <?php echo $_SESSION['fullname'] ?>'s profile</small></h3>
+
+
+        <?php if(!empty($view->messages["errors"])): ?>
+            <div class="alert alert-danger" role="alert">
+                <?php foreach($view->messages["errors"] as $error): ?>
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    <span class="sr-only">Error:</span>
+                    <?php echo $error . "<br>"; ?>
+                <?php endforeach?>
+            </div>
+        <?php endif; ?>
+
+        <?php if(isset($view->notice)): ?>
+            <div class="alert alert-success alert-dismissible" role="alert">
+                <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <strong> Success! </strong> Your profile has been updated
+            </div>
+        <?php endif; ?>
+
+        <form action="" method="post" autocomplete="off">
+            <div class="input-group marginB20">
+                <span class="input-group-addon">*</span>
+                <input class="form-control" type="text" name="name" value="<?php if(isset($view->messages["userInput"]["name"])){ echo $view->messages["userInput"]["name"];}?>" placeholder="Full Name" autocomplete="off">
+            </div>
+
+            <div class="input-group marginB20">
+                <span class="input-group-addon">*</span>
+                <input class="form-control" type="email" name="email" value="<?php if(isset($view->messages["userInput"]["email"])){ echo $view->messages["userInput"]["email"];}?>" placeholder="Email" autocomplete="off">
+            </div>
+
+            <div class="input-group marginB20">
+                <span class="input-group-addon">*</span>
+                <input class="form-control" type="number" name="phone-number" value="<?php if(isset($view->messages["userInput"]["phone-number"])){ echo $view->messages["userInput"]["phone-number"];}?>" placeholder="Phone Number" autocomplete="off">
+            </div>
+
+            <div class="input-group marginB20">
+                <span class="input-group-addon">*</span>
+                <input class="form-control" type="text" name="address" value="<?php if(isset($view->messages["userInput"]["address"])){ echo $view->messages["userInput"]["address"];}?>" placeholder="Address" autocomplete="off">
+            </div>
+
+            <div class="input-group marginB20">
+                <span class="input-group-addon">*</span>
+                <input class="form-control" type="text" name="postcode" value="<?php if(isset($view->messages["userInput"]["postcode"])){ echo $view->messages["userInput"]["postcode"];}?>" placeholder="Postcode" autocomplete="off">
+            </div>
+
+            <div class="input-group marginB20">
+                <span class="input-group-addon">*</span>
+                <input class="form-control" type="password" name="password" value="<?php if(isset($view->messages["userInput"]["password"])){ echo $view->messages["userInput"]["password"];} else{ echo "";} ?>" placeholder="Password (Leave blank if you don't want to change)" autocomplete="off">
+            </div>
+
+            <div class="input-group marginB20">
+                <span class="input-group-addon">*</span>
+                <input class="form-control" type="password" name="password1" value="<?php if(isset($view->messages["userInput"]["password1"])){ echo $view->messages["userInput"]["password1"];}?>" placeholder="Repeat Password" autocomplete="off">
+            </div>
+
+            <div class="btn-group">
+                <button type="submit" name="submit-update-user" class="btn btn-primary">
+                    Update Details  &nbsp;
+                    <span class="glyphicon glyphicon-circle-arrow-right"></span>
+                </button>
+            </div>
+        </form>
+    </div>
+
+
+
+<?php require('template/footer.phtml') ?>

@@ -1,0 +1,53 @@
+<?php require('template/header.phtml') ?>
+<?php require('template/sidebar.phtml') ?>
+<?php require('template/post-sidebar.phtml') ?>
+
+
+
+
+<div class="login col-md-6 col-md-offset-3 marginT30">
+    <h3 class="center-text marginB30"><small>Login to view and manage your account</small></h3>
+
+    <?php if(isset($view->messages)): ?>
+        <div class="alert alert-danger" alert-dismissible" role="alert">
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            <span class="sr-only">Error:</span>
+            <?php echo $view->messages["error"]; ?>
+            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        </div>
+    <?php endif; ?>
+
+    <?php if(isset($view->notice)): ?>
+        <div class="alert alert-success alert-dismissible" role="alert">
+            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <strong> Success! </strong> <?=$view->notice?>
+        </div>
+    <?php endif; ?>
+
+
+    <form action="" method="post" autocomplete="off">
+
+        <div class="input-group marginB20">
+            <span class="input-group-addon">*</span>
+            <input class="form-control" type="email" name="email" placeholder="Email" value="<?php if(isset($view->messages)){ echo $view->messages["email"];}?>" autocomplete="off">
+        </div>
+
+        <div class="input-group marginB20">
+            <span class="input-group-addon">*</span>
+            <input class="form-control" type="password" name="password" value="<?php if(isset($view->messages)){ echo $view->messages["password"];}?>" placeholder="Password" autocomplete="off">
+        </div>
+
+        <div class="btn-group">
+            <button name="submit-login" type="submit" class="btn btn-primary">
+                Sign In  &nbsp;
+                <span class="glyphicon glyphicon-circle-arrow-right"></span>
+            </button>
+        </div>
+    </form>
+
+    <small class="pull-left marginT30">Haven't got an account? <a href="register.php" class="">Register</a></small>
+    <small class="pull-right marginT30"><a href="register.php" class="">Forgot Password</a></small>
+</div>
+
+<?php require('template/footer.phtml') ?>

@@ -1,0 +1,307 @@
+.refine-search {
+
+    height: auto;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    background-color: #f2f2f2;
+    box-sizing: border-box;
+    padding: 5px 0;
+}
+
+.refine-left {
+    box-sizing: border-box;
+    height: 100%;
+}
+
+.refine-right {
+    box-sizing: border-box;
+    height: 100%;
+}
+
+
+footer {
+    margin-top: 40px;
+    text-align: center;
+    background-color: #d1d1d1;
+    color: #333;
+    height: 100px;
+    border-top: 1px solid #d1d1d1;
+}
+
+footer p  {
+    padding-top: 25px;
+    text-transform: none !important;
+    text-decoration: none !important;
+    font-style: normal;
+}
+
+.auto-margin{
+    margin-bottom: 8px;
+    margin-top: 8px;
+}
+
+.main-container{
+    min-height: calc(100% - 140px);
+}
+
+
+.center-text{
+    text-align: center;
+}
+
+
+.thumbnail{
+    min-height: 400px;
+}
+
+.thumbnail .caption {
+   bottom: 0;
+}
+
+.thumbnail-img-holder{
+    min-height: 250px;
+}
+
+small{
+    font-size: 12px;
+}
+
+small a{
+    text-decoration: none;
+    color: #39c;
+}
+
+.login{
+    height: auto;
+    border: 1px solid #cccccc;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0,0,0,.13);
+    padding-bottom: 20px;
+}
+
+
+
+.navbar-default {
+    background-image: linear-gradient(to bottom,#fff 0,#d1d1d1 100%) !important;
+}
+
+
+.modal {
+    font-style: normal !important;
+}
+
+
+
+
+.marginB5{
+    margin-bottom: 5px;
+}
+
+
+.marginB10{
+    margin-bottom: 10px;
+}
+
+
+.marginB15{
+    margin-bottom: 15px;
+}
+
+
+.marginB20{
+    margin-bottom: 20px;
+}
+
+.marginB25{
+    margin-bottom: 25px;
+}
+
+
+.marginB30{
+    margin-bottom: 30px;
+}
+
+
+
+.marginT70{
+     margin-top:90px;
+ }
+
+.marginT3{
+     margin-top:3px;
+ }
+
+.marginT10{
+    margin-top:10px;
+}
+
+
+.minHeight800{
+    min-height: 500px !important;
+}
+
+
+.marginT30{
+    margin-top: 30px;
+}
+
+
+.marginB5{
+    margin-bottom: 5px;
+}
+
+
+.marginB10{
+    margin-bottom: 10px;
+}
+
+
+.marginB15{
+    margin-bottom: 15px;
+}
+
+
+.marginB20{
+    margin-bottom: 20px;
+}
+
+.marginB25{
+    margin-bottom: 25px;
+}
+
+
+.marginB30{
+    margin-bottom: 30px;
+}
+
+
+
+.marginT70{
+    margin-top:90px;
+}
+
+
+.minHeight800{
+    min-height: 500px !important;
+}
+
+
+.marginT30{
+    margin-top: 30px;
+}
+
+
+
+
+/*
+ * #############################################################  Dashbord Theme
+ */
+
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+    padding-top: 50px;
+    color: #212121 !important;
+    height: 100%;
+}
+
+html{
+    height: 100%;
+}
+
+
+
+/*
+ * Global add-ons
+ */
+
+.sub-header {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+/*
+ * Top navigation
+ * Hide default border to remove 1px line.
+ */
+.navbar-fixed-top {
+  border: 0;
+}
+
+/*
+ * Sidebar
+ */
+
+/* Hide for mobile, show later */
+.sidebar {
+  display: none;
+}
+@media (min-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 51px;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: block;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+    background-color: #d1d1d1;
+  }
+}
+
+/* Sidebar navigation */
+.nav-sidebar {
+  margin-right: -21px; /* 20px padding + 1px border */
+  margin-bottom: 20px;
+  margin-left: -20px;
+}
+.nav-sidebar > li > a {
+  padding-right: 20px;
+  padding-left: 20px;
+}
+.nav-sidebar > .active > a,
+.nav-sidebar > .active > a:hover,
+.nav-sidebar > .active > a:focus {
+  color: #fff;
+  background-color: #428bca;
+}
+
+
+/*
+ * Main content
+ */
+
+.main {
+  padding: 20px;
+}
+@media (min-width: 768px) {
+  .main {
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+}
+.main .page-header {
+  margin-top: 0;
+}
+
+
+/*
+ * Placeholder dashboard ideas
+ */
+
+.placeholders {
+  margin-bottom: 30px;
+  text-align: center;
+}
+.placeholders h4 {
+  margin-bottom: 0;
+}
+.placeholder {
+  margin-bottom: 20px;
+}
+.placeholder img {
+  display: inline-block;
+  border-radius: 50%;
+}
